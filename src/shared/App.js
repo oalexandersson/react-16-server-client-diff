@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-import './app.styl';
+import {red, green} from './app.styl';
 
 /**
  * The `App` component is the entry point for the react app.
@@ -8,12 +8,31 @@ import './app.styl';
  *
  * You can start developing your react app here.
  */
-export default class App extends Component {
+export default class App extends PureComponent {
+  componentWillMount() {
+    console.log('componentWillMount');
+    this.setState({
+      hasWindow: (typeof window !== 'undefined')
+    });
+  }
 
-    render() {
-        return (
-            <h1>Welcome to React Fiber.</h1>
-        );
-    }
+  componentDidUpdate() {
+    console.log('Why is componentDidUpdate not being called? It obviously did update.');
+  }
 
+  render() {
+    return (
+      <React.Fragment>
+        {this.state.hasWindow && (
+          <div key="0" className={red}>
+            I am red.
+          </div>
+        )}
+        <div key="1" className={green}>
+          I am green.
+        </div>
+      </React.Fragment>
+    );
+  }
 }
+
