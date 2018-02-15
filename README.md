@@ -4,6 +4,8 @@ If you add additional DOM nodes when rendering on the client, compared to what t
 
 I would understand if this could happen if the states were identical when rendering on server and client, but here I'm using a state change to cause this difference. Under this circumstance I find it absurd that the output is not what I last rendered on the client.
 
+Please note that the hot-reloading triggers rerendering correcly. If the texts both have their stated color, a reload of the page will "fix" that for you.
+
 The README below is the original project's README.
 
 # React 16 SSR Template
