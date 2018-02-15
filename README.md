@@ -1,3 +1,11 @@
+I forked this project to highlight a (to me rather absurd) behavior in React 16.
+
+If you add additional DOM nodes when rendering on the client, compared to what the server rendered, styles from the server rendering gets applied to your new DOM nodes.
+
+I would understand if this could happen if the states were identical when rendering on server and client, but here I'm using a state change to cause this difference. Under this circumstance I find it absurd that the output is not what I last rendered on the client.
+
+The README below is the original project's README.
+
 # React 16 SSR Template
 This project provides a template for React 16 (Fiber) using server
 side rendering.
